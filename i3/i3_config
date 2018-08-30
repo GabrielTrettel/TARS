@@ -1,0 +1,237 @@
+# Should you change your keyboard layout some time, delete
+# this file and re-run i3-config-wizard(1).
+
+# i3 config file (v4)
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+# Installation requirements: rofi, i3lock, i3lock-fancy, feh, audiopulse, i3status, pywal, bumblebee-status, yakuake, ranger, flameshot, dolphin, konsole, atom
+
+# Set mod key
+set $mod Mod4
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:DejaVu Sans Mono 8
+
+
+## AUTO START AND CUSTOM BINDS ##
+# start a terminal
+bindsym $mod+Return exec konsole
+
+# nm-applet
+exec --no-startup-id nm-applet --sm-disable
+
+# start yakuke on start up
+exec yakuake
+for_window [instance="yakuake"] floating enable
+
+# start rofi
+bindsym $mod+space exec rofi -show run -sidebar-mode
+
+# start ranger
+bindsym $mod+x exec urxvt -e ranger
+
+# lock the screen
+bindsym $mod+Shift+x exec ~/.config/i3/i3lock-fancy/lock
+
+# start flameshot
+bindsym $mod+p exec flameshot gui
+
+# start dolphin
+bindsym $mod+a exec dolphin
+
+# start polybar
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# autostart some programs
+assign [class="Firefox"] $ws1
+assign [class="Atom"] $ws2
+bindsym $mod+m exec firefox; exec atom
+
+# Set a theme based on wallpaper using pywal and copy color-scheme to reuse in other programs
+exec --no-startup-id wal -i /home/trettel/Pictures/wallpapers/astronault22.png
+exec --no-startup-id cp ~/.cache/wal/colors-konsole.colorscheme ~/.local/share/konsole/colors-konsole.colorscheme
+
+# disable beep noise ( NOT NECESSARY, THIS IS JUST FOR SOME PC'S )
+exec xset b off
+
+
+## COLOR SCHEME STUFF ##
+# Set a color scheme from Xresources for window decoration based on pywal
+set_from_resource $bg-color             i3wm.color7             #dFB89B
+set_from_resource $inactive-bg-color    i3wm.color2             #637FFF
+set_from_resource $indicator            i3wm.color3             #f0f0f0
+set_from_resource $text-color           i3wm.color0             #637FFF
+set_from_resource $inactive-text-color  i3wm.color7             #FFB89B
+set_from_resource $urgent-bg-color                              #eb8a44
+set_from_resource $bar-bg               i3wm.background         #f0f0f0
+
+# window colors
+#                       border              background          text                    indicator
+client.focused          $bg-color           $bg-color           $text-color             $indicator
+client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color    $indicator
+client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color    $indicator
+client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color $indicator  $indicator
+
+
+## WINDOWS MANAGEMENT STUFF ##
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j focus left
+bindsym $mod+Shift+k focus down
+bindsym $mod+Shift+l focus up
+bindsym $mod+Shift+ccedilla focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Alt+space focus mode_toggle
+
+# kill focused window
+bindsym $mod+q kill
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# move focuser container to prev and next workspace
+bindsym $mod+ccedilla workspace next_on_output
+bindsym $mod+j workspace prev_on_output
+
+
+
+bar {
+	position top
+	tray_output primary
+
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m spacer nic weather sensors brightness pasink battery date time -p weather.location="Santo André" time.format="%H:%M" date.format="%d/%m/%Y" -t solarized-powerline
+
+	colors {
+
+		#                     border		background		text
+		focused_workspace     $bg-color     $bg-color       $bar-bg
+		inactive_workspace	  $bar-bg		$bar-bg		    $bg-color
+        urgent_workspace      $indicator    $indicator      $bg-color
+        background                          $bar-bg
+        }
+
+
+}
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ccedilla resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+## SESSION STUFF ##
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'I dare you, I double dare that you will not end your session ' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+## I/O CONFIGURATION ##
+# Set a volume control with AudioPulse
+bindsym XF86AudioRaiseVolume exec amixer set Master -q 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master -q 5%-
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
