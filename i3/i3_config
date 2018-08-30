@@ -40,7 +40,7 @@ bindsym $mod+p exec flameshot gui
 # start dolphin
 bindsym $mod+a exec dolphin
 
-# start polybar
+# start polybar  -not used anymore-
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # autostart some programs
@@ -221,17 +221,17 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'I dare you, I double dare th
 # Set a volume control with AudioPulse
 bindsym XF86AudioRaiseVolume exec amixer set Master -q 5%+
 bindsym XF86AudioLowerVolume exec amixer set Master -q 5%-
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioMute        exec "amixer -q sset Master,0 toggle"
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 20    # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20    # decrease screen brightness
 
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+# Enable tap-to-click touchpad
+exec --no-startup-id xinput set-prop 14 279 1
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPlay  exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
