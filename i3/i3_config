@@ -1,6 +1,3 @@
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -46,10 +43,11 @@ bindsym $mod+a exec dolphin
 # autostart some programs
 assign [class="Firefox"] $ws1
 assign [class="Atom"] $ws2
-bindsym $mod+m exec firefox; exec atom
+assign [class="Spotify"] $ws10
+bindsym $mod+m exec firefox; exec atom; exec spotify
 
 # Set a theme based on wallpaper using pywal and copy color-scheme to reuse in other programs
-exec --no-startup-id wal -i /home/trettel/Pictures/wallpapers/astronault22.png
+exec --no-startup-id wal -i /home/trettel/Pictures/wallpapers/vang.png
 exec --no-startup-id cp ~/.cache/wal/colors-konsole.colorscheme ~/.local/share/konsole/colors-konsole.colorscheme
 
 # disable beep noise ( NOT NECESSARY, THIS IS JUST FOR SOME PC'S )
@@ -163,7 +161,7 @@ bar {
 	position top
 	tray_output primary
 
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m spacer nic weather sensors brightness pasink battery date time -p weather.location="Santo André" time.format="%H:%M" date.format="%d/%m/%Y" -t solarized-powerline
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m spacer nic weather memory sensors brightness pasink battery date time -p weather.location="Santo André" time.format="%H:%M" date.format="%d/%m/%Y" -t solarized-powerline
 
 	colors {
 
@@ -231,7 +229,15 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20    # decrease screen brigh
 exec --no-startup-id xinput set-prop 14 279 1
 
 # Media player controls
-bindsym XF86AudioPlay  exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext  exec playerctl next
-bindsym XF86AudioPrev  exec playerctl previous
+
+# Spotify related key bindings
+bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+
+#bindsym XF86AudioPlay  exec playerctl play
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext  exec playerctl next
+#bindsym XF86AudioPrev  exec playerctl previous
