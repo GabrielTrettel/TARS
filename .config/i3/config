@@ -12,49 +12,50 @@ font pango:DejaVu Sans Mono 8
 
 
 ## AUTO START AND CUSTOM BINDS ##
-# start a terminal
+# Some custom binds for frequent used programs
+bindsym $mod+a exec atom
+bindsym $mod+z exec spotify
+bindsym $mod+c exec firefox
+
+# run a terminal [konsole for now]
 bindsym $mod+Return exec konsole
 
-# nm-applet
-exec --no-startup-id nm-applet --sm-disable
+# run rofi
+bindsym $mod+space exec rofi -show run -sidebar-mode
+
+# run ranger
+bindsym $mod+x exec urxvt -e ranger
+
+# run flameshot
+bindsym $mod+p exec flameshot gui
+
+# run dolphin
+bindsym $mod+d exec dolphin
 
 # start yakuke on start up
 exec yakuake
 for_window [instance="yakuake"] floating enable
 
-# start rofi
-bindsym $mod+space exec rofi -show run -sidebar-mode
+# disable beep noise ( NOT NECESSARY, THIS IS JUST FOR SOME PC'S )
+exec --no-startup-id xset b off
 
-# start ranger
-bindsym $mod+x exec urxvt -e ranger
-
-# lock the screen
-bindsym $mod+Shift+x exec ~/.config/i3/i3lock-fancy/lock
-
-# start flameshot
-bindsym $mod+p exec flameshot gui
-
-# start dolphin
-bindsym $mod+a exec dolphin
-
-# start polybar  -not used anymore-
+# Deprecated zone: (keeping for backup pourposes)
+# start polybar  [not used anymore - NOW: Bumblebee status bar]
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 # autostart some programs
-assign [class="Firefox"] $ws1
-assign [class="Atom"] $ws2
-assign [class="Spotify"] $ws10
-bindsym $mod+m exec firefox; exec atom; exec spotify
+# assign [class="Firefox"] $ws1
+# assign [class="Atom"] $ws2
+# assign [class="Spotify"] $ws10
+# bindsym $mod+m exec firefox; exec atom; exec spotify
+# nm-applet
+# exec --no-startup-id nm-applet --sm-disable
 
+
+## COLOR SCHEME STUFF ##
 # Set a theme based on wallpaper using pywal and copy color-scheme to reuse in other programs
 exec --no-startup-id wal -i /home/trettel/Pictures/wallpapers/vang.png
 exec --no-startup-id cp ~/.cache/wal/colors-konsole.colorscheme ~/.local/share/konsole/colors-konsole.colorscheme
 
-# disable beep noise ( NOT NECESSARY, THIS IS JUST FOR SOME PC'S )
-exec xset b off
-
-
-## COLOR SCHEME STUFF ##
 # Set a color scheme from Xresources for window decoration based on pywal
 set_from_resource $bg-color             i3wm.color7             #dFB89B
 set_from_resource $inactive-bg-color    i3wm.color2             #637FFF
@@ -155,8 +156,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+ccedilla workspace next_on_output
 bindsym $mod+j workspace prev_on_output
 
-
-
 bar {
 	position top
 	tray_output primary
@@ -174,7 +173,6 @@ bar {
 
 
 }
-
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -214,6 +212,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'I dare you, I double dare that you will not end your session ' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# lock the screen
+bindsym $mod+Shift+x exec ~/.config/i3/i3lock-fancy/lock
 
 ## I/O CONFIGURATION ##
 # Set a volume control with AudioPulse
@@ -228,16 +228,15 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20    # decrease screen brigh
 # Enable tap-to-click touchpad
 exec --no-startup-id xinput set-prop 14 279 1
 
-# Media player controls
-
+## Media player controls
 # Spotify related key bindings
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
-
-#bindsym XF86AudioPlay  exec playerctl play
-#bindsym XF86AudioPause exec playerctl pause
-#bindsym XF86AudioNext  exec playerctl next
-#bindsym XF86AudioPrev  exec playerctl previous
+# Other way for key bind, but not working in spotify 
+# bindsym XF86AudioPlay  exec playerctl play
+# bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext  exec playerctl next
+# bindsym XF86AudioPrev  exec playerctl previous
