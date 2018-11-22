@@ -10,21 +10,24 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
+set $term konsole
 
 ## AUTO START AND CUSTOM BINDS ##
 # Some custom binds for frequent used programs
 bindsym $mod+a exec atom
 bindsym $mod+z exec spotify
 bindsym $mod+c exec firefox
+bindsym $mod+Shift+Return exec $term -e python3
+
 
 # run a terminal [konsole for now]
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec $term
 
 # run rofi
 bindsym $mod+space exec rofi -show run -sidebar-mode
 
 # run ranger
-bindsym $mod+x exec urxvt -e ranger
+bindsym $mod+x exec $term -e ranger
 
 # run flameshot
 bindsym $mod+p exec flameshot gui
@@ -53,7 +56,7 @@ exec --no-startup-id xset b off
 
 ## COLOR SCHEME STUFF ##
 # Set a theme based on wallpaper using pywal and copy color-scheme to reuse in other programs
-exec --no-startup-id wal -i /home/trettel/Pictures/wallpapers/vang.png
+exec --no-startup-id wal -i /home/trettel/Pictures/wallpapers/yosemite.png
 exec --no-startup-id cp ~/.cache/wal/colors-konsole.colorscheme ~/.local/share/konsole/colors-konsole.colorscheme
 
 # Set a color scheme from Xresources for window decoration based on pywal
@@ -81,10 +84,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j focus left
-bindsym $mod+Shift+k focus down
-bindsym $mod+Shift+l focus up
-bindsym $mod+Shift+ccedilla focus right
+bindsym $mod+Shift+h focus left
+bindsym $mod+Shift+j focus down
+bindsym $mod+Shift+k focus up
+bindsym $mod+Shift+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -153,7 +156,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # move focuser container to prev and next workspace
-bindsym $mod+ccedilla workspace next_on_output
+bindsym $mod+l workspace next_on_output
 bindsym $mod+j workspace prev_on_output
 
 bar {
@@ -165,10 +168,10 @@ bar {
 	colors {
 
 		#                     border		background		text
-		focused_workspace     $bg-color     $bg-color       $bar-bg
-		inactive_workspace	  $bar-bg		$bar-bg		    $bg-color
-        urgent_workspace      $indicator    $indicator      $bg-color
-        background                          $bar-bg
+		focused_workspace     $bg-color         $bg-color               $bar-bg
+		inactive_workspace    $bar-bg		$bar-bg		        $bg-color
+        	urgent_workspace      $indicator        $indicator              $bg-color
+        	background            $bar-bg
         }
 
 
@@ -235,8 +238,8 @@ bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
-# Other way for key bind, but not working in spotify 
+# Other way for key bind, but not working in spotify
 # bindsym XF86AudioPlay  exec playerctl play
 # bindsym XF86AudioPause exec playerctl pause
 # bindsym XF86AudioNext  exec playerctl next
-# bindsym XF86AudioPrev  exec playerctl previous
+# bindsym XF86AudioPrev exec playerctl previous

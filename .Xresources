@@ -1,10 +1,11 @@
 URxvt.perl-ext-common: default,clipboard,matcher,keyboard-select
 
-urxvt.scrollBar: false2
-urxvt.font: xft:Hack:pixelsize=13
-urxvt.boldFont: xft:Hack:pixelsize=16:weight=bold
-urxvt.letterSpace: -1
 
+urxvt.scrollBar: false2
+urxvt.font: xft:Hack:pixelsize=18
+urxvt.boldFont: xft:Hack:pixelsize=16:weight=bold
+Urxvt.letterSpace: -1
+!!URxvt.letterSpace: 0 
 
 !! URLs
 URxvt.keysym.C-U: perl:url-select:select_next

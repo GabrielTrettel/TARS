@@ -74,6 +74,7 @@ plugins=(
 	zsh-syntax-highlighting
 	history
 	sudo
+	lol
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -139,3 +140,4 @@ hash -d ML=~/Documents/MachineLearning
 hash -d SL=~/Documents/projects/ScientometricsLab
 hash -d WAL=~/Pictures/wallpapers
 hash -d GDF=~/Documents/projects/GDF_Formatter
+hash -d HM=~/Documents/projects/HashingMusics
