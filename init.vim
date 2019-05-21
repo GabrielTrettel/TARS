@@ -1,11 +1,15 @@
 set nu
+set mouse=a
 syntax on
 colorscheme monokai
+set background=dark
+
 
 call plug#begin('~/.local/share/nvim/plugged')
 "plug 'junegunn/fzf.vim'
 "Plug 'itchyny/lightline.vim'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'miyakogi/seiya.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'terryma/vim-multiple-cursors'
@@ -15,10 +19,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'racer-rust/vim-racer'
-"Plug 'timonv/vim-cargo'
-"Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+" Plug 'timonv/vim-cargo'
+Plug 'rust-lang/rust.vim'
 call plug#end()
+
+
+" let g:seiya_auto_enable=100
 
 
 " Toggle file tree
@@ -26,6 +33,9 @@ map <C-\> :NERDTreeToggle<CR>
 
 " Enable fuzzy files search
 map ; :Files<CR>
+
+" Copy outside vim
+vnoremap <silent> <C-y> "+y<CR><Paste>
 
 highlight MyQuestions guifg=orange guibg=black
 syntax match MyQuestions /Question/
@@ -69,10 +79,10 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = '☰'
-"let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.maxlinenr = ''
 
 " Vim Racer
 let g:racer_cmd = "/home/user/.cargo/bin/racer"
