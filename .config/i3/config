@@ -14,7 +14,7 @@ new_float normal
 # Hide borders
 hide_edge_borders none
 
-#pywal 
+#pywal
 exec "wal -i /home/trettel/Pictures/wallpapers/almond.png"
 
 # Swap Esq <-> Caps
@@ -72,8 +72,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -314,7 +314,7 @@ exec_always --no-startup-id fix_xcursor
 # Change the variable name at the place you want to match the color
 # of your terminal like this:
 # [example]
-# If you want your bar to have the same background color as your 
+# If you want your bar to have the same background color as your
 # terminal background change the line 362 from:
 # background #14191D
 # to:
@@ -340,33 +340,33 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-# bar {
-# 	i3bar_command i3bar
-# 	status_command i3status
-# 	position top
-# 
-# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-# #	tray_output primary
-# #	tray_output eDP1
-# 
-# 	bindsym button4 nop
-# 	bindsym button5 nop
-# #   font xft:URWGothic-Book 11
-# 	strip_workspace_numbers yes
-# 
-#     colors {
-#         background #222D31
-#         statusline #F9FAF9
-#         separator  #454947
-# 
-# #                      border  backgr. text
-#         focused_workspace  #F9FAF9 #16a085 #292F34
-#         active_workspace   #595B5B #353836 #FDF6E3
-#         inactive_workspace #595B5B #222D31 #EEE8D5
-#         binding_mode       #16a085 #2C2C2C #F9FAF9
-#         urgent_workspace   #16a085 #FDF6E3 #E5201D
-#     }
-# }
+bar {
+    # i3bar_command i3bar
+    status_command i3status
+    # position top
+
+## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+    tray_output primary
+#    tray_output eDP1
+
+    bindsym button4 nop
+    bindsym button5 nop
+#   font xft:URWGothic-Book 11
+    strip_workspace_numbers yes
+
+    colors {
+        background #222D31
+        statusline #F9FAF9
+        separator  #454947
+
+#                          border  backgr. text
+        focused_workspace  #F9FAF9 #16a085 #292F34
+        active_workspace   #595B5B #353836 #FDF6E3
+        inactive_workspace #595B5B #222D31 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
+    }
+}
 
 # Set a color scheme from Xresources for window decoration based on pywal
 set_from_resource $bg-color             i3wm.color7             #dFB89B
@@ -387,26 +387,23 @@ client.urgent $urgent-bg-color $urgent-bg-color $text-color $indicator $indicato
 
 
 bar {
-	position top
-	tray_output primary
-	font xft:Hack Nerd Font 8
+    position top
+    tray_output primary
+    # font xft:Hack Nerd Font 8
+    status_command /home/trettel/.config/i3/bumblebee-status/bumblebee-status -m  memory sensors brightness battery date time -p time.format="%H:%M" date.format="%d/%m/%Y" -t iceberg-powerline
 
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m weather nic memory sensors brightness battery date time -p weather.location="Santo André" time.format="%H:%M" date.format="%d/%m/%Y" -t iceberg-powerline
-
-	colors {
-
-	#                     border		background		text
-	focused_workspace     $bg-color     	$bg-color       	$bar-bg
-	inactive_workspace    $bar-bg		$bar-bg		    	$bg-color
-        urgent_workspace      $indicator    	$indicator      	$bg-color
-        background                          	$bar-bg
-        }
-
-
+    # colors {
+    #
+    # #                     border        background        text
+    # focused_workspace     $bg-color     $bg-color         $bar-bg
+    # inactive_workspace    $bar-bg       $bar-bg           $bg-color
+    # urgent_workspace      $indicator    $indicator        $bg-color
+    # background                          $bar-bg
+    # }
 }
 
 # hide/unhide i3status bar
-# bindsym $mod+m bar mode toggle
+bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -414,8 +411,8 @@ bar {
 #   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
 #   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 #   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-#   client.placeholder      #000000 #0c0c0c #ffffff #000000 
-# 
+#   client.placeholder      #000000 #0c0c0c #ffffff #000000
+#
 #   client.background       #2B2C2B
 
 #############################
@@ -433,7 +430,7 @@ gaps outer 1
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
