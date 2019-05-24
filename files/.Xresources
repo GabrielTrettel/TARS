@@ -1,4 +1,4 @@
-!! location : ~/.Xresources
+!! location : /home/trettel/.Xresources
 !! mouse icon theme
 Xcursor.theme:
 

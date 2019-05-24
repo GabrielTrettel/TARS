@@ -1,7 +1,7 @@
-" location : ~/.config/nvim/init.vim
+" location : /home/trettel/.config/nvim/init.vim
 set nu
 set mouse=a
-syntax on
+syntax enable
 colorscheme monokai
 set background=dark
 

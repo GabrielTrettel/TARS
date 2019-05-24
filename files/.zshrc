@@ -1,4 +1,4 @@
-# location : ~/.zshrc
+# location : /home/trettel/.zshrc
 # If you come from bash you might have to change your $PATH.
 
 # Path to your oh-my-zsh installation.
@@ -162,10 +162,10 @@ hash -d SL=~/Documents/projects/ScientometricsLab
 hash -d WAL=~/Pictures/wallpapers
 hash -d GDF=~/Documents/projects/GDF_Formatter
 hash -d HM=~/Documents/projects/HashingMusics
-hash -d CPE=/home/trettel/Documents/projects/BackPlataformaCPE
-hash -d RSL=/home/trettel/Documents/CreationLab/RustLab
-hash -d ChFS=/home/trettel/Documents/projects/ChaosFS
-hash -d cnfg=/home/trettel/Documents/projects/configs
+hash -d CPE=~/Documents/projects/BackPlataformaCPE
+hash -d RSL=~/Documents/CreationLab/RustLab
+hash -d ChFS=~/Documents/projects/ChaosFS
+hash -d TARS=~/Documents/projects/TARS
 
 # PowerLevel9k config
 # More info on https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt

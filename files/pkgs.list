@@ -1,10 +1,12 @@
-# location : not-copy
+# sudo pacman -S
+i3blocks
+i3-gaps
+i3lock
+i3status
 alacritty
 atom
 bmenu
-bumblebee-status
 bzip2
-cantarell-fonts
 clang
 dbeaver
 docker
@@ -15,26 +17,13 @@ evince
 feh
 firefox
 fish
-flac
 flameshot
-flex
-fuse3
-gawk
 gephi
-gettext
-gimp
-git
-google-chrome
-gparted
 gtop
 guake
 gzip
-inetutils
 julia
 jupyter-notebook
-kdeconnect
-kdesu
-konsole
 less
 libreoffice-fresh-br
 mariadb
@@ -43,20 +32,8 @@ mousepad
 mysql-python
 neofetch
 neovim
-nerd-fonts-hack
-net-tools
 network-manager-applet
-networkmanager
-networkmanager-openconnect
-networkmanager-openvpn
-networkmanager-vpnc
 nmap
-okular
-open-fuse-iso
-openjdk7-src
-openresolv
-openssh
-os-prober
 p7zip
 pdfarranger
 postgresql
@@ -66,7 +43,6 @@ python-configargparse
 python-lxml
 python-mysql-connector
 python-mysqlclient
-python-pycallgraph
 python-scikit-learn
 python-seaborn
 python-tqdm
@@ -74,11 +50,7 @@ python-virtualenv
 ranger
 rofi
 rsync
-s-nail
-sbxkb
 screenfetch
-spotify
-sublime-text-dev
 tar
 telegram-desktop
 terminus-font
@@ -87,16 +59,9 @@ texinfo
 tigervnc
 tree
 trizen
-ttf-bitstream-vera
-ttf-dejavu
-ttf-droid
-ttf-inconsolata
-ttf-indic-otf
-ttf-liberation
 unrar
 unzip
 upower
-usbutils
 valgrind
 vde2
 viewnior
@@ -107,3 +72,37 @@ xterm
 z
 zeal
 zsh
+xorg-xbacklight
+xf86-input-libinput
+xdotool
+clipit
+ttf-hack
+compton
+libinput-gestures
+zsh-theme-powerlevel9k
+
+# trizen -S
+spotify
+google-chrome
+
+# sudo sh -c
+"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# git clone
+https://github.com/tobi-wan-kenobi/bumblebee-status ~/.config/i3/
+
+# sudo git clone
+https://github.com/zsh-users/zsh-completions /opt/.oh-my-zsh/custom/plugins/zsh-completions
+https://github.com/zsh-users/zsh-autosuggestions.git /opt/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+https://github.com/zsh-users/zsh-syntax-highlighting.git /opt/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+# sudo curl -fLo
+~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# curl -fLo
+~/.config/nvim/colors/monokai.vim --create-dirs https://gist.githubusercontent.com/GabrielTrettel/e9c677fda73ac3b34a81c832449a97b6/raw/e184d86ab8e35d0ca62f59864c1c05fa410b60dc/monokai.vim
+
+# nvim -c
+':PlugUpdate' -c ':q' -c ':q'
+':PlugUgrade' -c ':q' -c ':q'
+':PlugInstall' -c ':q' -c ':q'
