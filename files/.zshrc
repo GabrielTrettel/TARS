@@ -166,6 +166,10 @@ hash -d CPE=~/Documents/projects/BackPlataformaCPE
 hash -d RSL=~/Documents/CreationLab/RustLab
 hash -d ChFS=~/Documents/projects/ChaosFS
 hash -d TARS=~/Documents/projects/TARS
+hash -d xmls=~/Documents/projects/xmls
+hash -d mal=~/Documents/projects/MonitoriaAnalise
+hash -d SD=~/Documents/projects/Disciplinas/Sistemas\ Distribuidos
+hash -d PP=~/Documents/projects/Disciplinas/Paradigmas_Programação
 
 # PowerLevel9k config
 # More info on https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
