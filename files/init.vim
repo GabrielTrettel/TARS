@@ -10,9 +10,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 "plug 'junegunn/fzf.vim'
 "Plug 'itchyny/lightline.vim'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'parsonsmatt/intero-neovim'
 Plug 'miyakogi/seiya.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'JuliaEditorSupport/julia-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -23,6 +25,12 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'racer-rust/vim-racer'
 " Plug 'timonv/vim-cargo'
 Plug 'rust-lang/rust.vim'
+" Use release branch
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Or latest tag
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+" Or build from source code by use yarn: https://yarnpkg.com
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 

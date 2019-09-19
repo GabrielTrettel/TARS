@@ -1,0 +1,9 @@
+# sudo pacman -S
+gtop
+htop
+
+# trizen -S
+google-chrome-stable
+
+#Treemacs sudo sh -c
+"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
