@@ -15,6 +15,8 @@ Where <path_config> is a folder with all yours config files, and <pkg.list> is a
 ```
 # location : /home/foo/bar/example.txt
 ```
+
+
 You can use any comment character that you want, the important here is write "location" and put the full path after ':'
 
  - The file who install programs is simple and an example can be found [here](https://github.com/GabrielTrettel/TARS/blob/master/files/pkgs.list). All lines are executed by its closest command above, starting by a "\#".
