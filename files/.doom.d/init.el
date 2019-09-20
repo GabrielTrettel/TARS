@@ -1,5 +1,3 @@
-;; location : /home/trettel/.doom.d/init.el
-
 ;;; init.el -*- lexical-binding: t; -*-
 
 ;; Copy this file to ~/.doom.d/init.el or ~/.config/doom/init.el ('doom install'
@@ -34,10 +32,9 @@
        ;;hydra
        indent-guides     ; highlighted indent columns
                          ;
-       ;; modeline          ; snazzy, Atom-inspired modeline, plus API
+       modeline          ; snazzy, Atom-inspired modeline, plus API
        ;; powerline
-       spaceline
-
+       ;; spaceline
        nav-flash         ; blink the current line after jumping
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
@@ -52,7 +49,6 @@
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
-
        :editor
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files

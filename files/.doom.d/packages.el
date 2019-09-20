@@ -1,5 +1,3 @@
-;; location : /home/trettel/.doom.d/packages.el
-
 ;; -*- no-byte-compile: t; -*-
 ;;; .doom.d/packages.el
 
@@ -10,3 +8,9 @@
 
 ;; (require 'spaceline-config)
 ;; (spaceline-spacemacs-theme)
+(package! all-the-icons)
+(package! julia-mode)
+(package! julia-repl)
+(package! treemacs)
+(package! doom-themes)
+;;(package! )
