@@ -8,12 +8,15 @@
  doom-font                  (font-spec :size 18)
  doom-big-font              (font-spec :size 36)
  doom-variable-pitch-font   (font-spec :size 18)
-)
+ )
+
 
 (setq
  spaceline-evil-state-p t
  spaceline-version-control-p t
  )
+
+
 
 
 ;; (setq treemacs-git-mode 'deferred)
@@ -24,7 +27,7 @@
 
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-;; (load-theme 'doom-molokai t)
+(load-theme 'doom-molokai t)
 
 
 ;; Enable flashing mode-line on errors
@@ -72,3 +75,19 @@
 
 ;; Whether display environment version or not
 (setq doom-modeline-env-version t)
+
+
+;; This is used to highlight function calls in julia
+(font-lock-add-keywords
+ 'julia-mode
+ '(("\\<\\([a-zA-z0-9|\_]+[!|.]?\\) ?(" 1 'font-lock-function-name-face)))
+
+;; Highlights in keyword color ::, <: and :>
+(font-lock-add-keywords
+ 'julia-mode
+ '(("\\([::|:>|<:]\\)" 1 'font-lock-keyword-face)))
+
+;; Highlights symbols as "constant" color
+(font-lock-add-keywords
+ 'julia-mode
+ '(("\\([^:]:\\sw+\\)" 1 'font-lock-constant-face)))
