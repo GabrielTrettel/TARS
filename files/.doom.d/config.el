@@ -78,16 +78,20 @@
 
 
 ;; This is used to highlight function calls in julia
-(font-lock-add-keywords
- 'julia-mode
- '(("\\<\\([a-zA-z0-9|\_]+[!|.]?\\) ?(" 1 'font-lock-function-name-face)))
-
-;; Highlights in keyword color ::, <: and :>
-(font-lock-add-keywords
- 'julia-mode
- '(("\\([::|:>|<:]\\)" 1 'font-lock-keyword-face)))
-
-;; Highlights symbols as "constant" color
-(font-lock-add-keywords
- 'julia-mode
- '(("\\([^:]:\\sw+\\)" 1 'font-lock-constant-face)))
+;; (font-lock-add-keywords
+;;  'julia-mode
+;;  '(("\\<\\([a-zA-z0-9|\_]+!?\\)[ |.]?(" 1 'font-lock-function-name-face)))
+;;
+;; ;; Highlights in keyword color ::, <: and :>
+;; (font-lock-add-keywords
+;;  'julia-mode
+;;  '(("\\([::\\|:>\\|<:]\\)" 1 'font-lock-keyword-face)))
+;;
+;; ;; Highlights symbols as "constant" color
+;; (font-lock-add-keywords
+;;  'julia-mode
+;;  '(("\\([^:]:\\sw+\\)" 1 'font-lock-constant-face)))
+;;
+;; (font-lock-add-keywords
+;;  'julia-mode
+;;  '(("\\[\\(.*?end\\)\\]"  1 'font-lock-constant-face)))
